@@ -25,11 +25,13 @@ public class Department implements Serializable{
 		this.name = name;
 	}
 
+	public Department() {}
+	
 	public Department(int id, String name) {
 		this.id = id;
 		this.name = name;
 	}
-
+	
 	@Override
 	public int hashCode() {
 		return Objects.hash(id);
