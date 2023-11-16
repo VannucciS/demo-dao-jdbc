@@ -1,15 +1,18 @@
 package model.entities;
 
-import java.text.DateFormat;
+import java.io.Serializable;
+import java.util.Date;
 import java.util.Objects;
 
-public class Seller {
+public class Seller implements Serializable {
 
+	private static final long serialVersionUID = 1L;
 	private int id;
 	private String name;
 	private String email;
-	private DateFormat BirthDate;
+	private Date BirthDate;
 	private double baseSalary;
+
 	private Department department;
 
 	public int getId() {
@@ -24,7 +27,7 @@ public class Seller {
 		return email;
 	}
 
-	public DateFormat getBirthDate() {
+	public Date getBirthDate() {
 		return BirthDate;
 	}
 
@@ -48,7 +51,7 @@ public class Seller {
 		this.email = email;
 	}
 
-	public void setBirthDate(DateFormat birthDate) {
+	public void setBirthDate(Date birthDate) {
 		BirthDate = birthDate;
 	}
 
@@ -60,7 +63,7 @@ public class Seller {
 		this.department = department;
 	}
 
-	public Seller(int id, String name, String email, DateFormat birthDate, double baseSalary, Department department) {
+	public Seller(int id, String name, String email, Date birthDate, double baseSalary, Department department) {
 		this.id = id;
 		this.name = name;
 		this.email = email;
@@ -77,7 +80,7 @@ public class Seller {
 
 	@Override
 	public int hashCode() {
-		return Objects.hash(BirthDate, id, name);
+		return Objects.hash(id);
 	}
 
 	@Override
@@ -89,7 +92,6 @@ public class Seller {
 		if (getClass() != obj.getClass())
 			return false;
 		Seller other = (Seller) obj;
-		return Objects.equals(BirthDate, other.BirthDate) && id == other.id && Objects.equals(name, other.name);
+		return id == other.id;
 	}
-	
 }
